@@ -1,0 +1,119 @@
+\documentclass[12pt, oneside]{article}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage[utf8]{inputenc} % Use unicode
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel} % Names in spanish
+
+
+\usepackage{xcolor}
+\usepackage{siunitx}
+
+%% Bibliography:
+%\usepackage{comment}
+%\usepackage[
+    %backend=biber,
+    %style=numeric,
+%]{biblatex}
+%\DeclareNameAlias{default}{last-first}
+
+%\usepackage{csquotes}       % For bibliography quotations
+%\DeclareQuoteAlias{spanish}{catalan}
+
+%\addbibresource{biblio.bib}
+%% see:
+%% https://www.sharelatex.com/learn/Bibliography_management_in_LaTeX#The_bibliography_file
+
+%\usepackage{datetime} % Customize date
+%% \monthyeardate\today gives the date without the day
+%\newdateformat{monthyeardate}{%
+    %\monthname[\THEMONTH], \THEYEAR}
+
+% For cross references
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks = true]{hyperref}
+\usepackage[catalan]{varioref}
+%\usepackage{cleveref}
+%hyperref configuration so that it doesn't contrast so much colorlinks,
+\hypersetup{
+   linkcolor={black},
+   citecolor={black},
+   %linkcolor={red!50!black},
+   %citecolor={blue!50!black},
+   urlcolor={blue!80!black}
+}
+
+\usepackage{mathtools}  % amsmath + more
+\usepackage{amsthm}     % Theorem enviroment
+\usepackage{amssymb}    % More symbols
+\usepackage{amstext}    % Text inside mathenv
+
+\usepackage{relsize}    % Bigger math with mathlarger{___}
+\usepackage{nicefrac}   % nice fractions in one line
+
+\usepackage[export]{adjustbox}  % Adjust table size
+\usepackage{float}              % Force tables and images position (H and H!)
+\usepackage{wrapfig}            % Wrap images like in HTML
+
+\usepackage{tabularx, colortbl, booktabs}    % Better tables
+\usepackage{longtable}                      % Multiple page table
+
+% Split cell in lines and more formating options inside table
+\usepackage{array, multirow, multicol, makecell}
+
+%\usepackage{subcaption}                     % Subfigures
+%\usepackage[framemethod=tikz]{mdframed}     % Custom frames
+
+%\usepackage[bottom]{footmisc} % Footnotes at bottom of page
+
+%\usepackage[alsoload=hep]{siunitx}          % SI units and uncertainties
+%\sisetup{locale = FR}                       % Commas and so on for spanish
+%\sisetup{separate-uncertainty=true}
+%\sisetup{
+  %per-mode=fraction,
+  %fraction-function=\nicefrac
+%}
+
+%\usepackage{tikz}
+%%\usetikzlibrary{arrows}
+%%\usetikzlibrary{scopes}
+%\usetikzlibrary{babel}
+
+%\usepackage{listings}       % For code blocks
+
+%% Custom code highlight
+%\definecolor{codegreen}{rgb}{0,0.6,0}
+%\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+%\definecolor{codepurple}{rgb}{0.58,0,0.82}
+%\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%\definecolor{lightblue}{RGB}{135,206,250}
+
+%\lstdefinestyle{mystyle}{ backgroundcolor=\color{backcolour},
+    %commentstyle=\color{codegreen}, keywordstyle=\color{blue},
+    %numberstyle=\tiny\color{codegray}, stringstyle=\color{red},
+    %identifierstyle=\color{black}, basicstyle=\footnotesize,
+    %%breakatwhitespace=false,
+    %breaklines=true,
+    %%captionpos=b,                    keepspaces=true,
+    %numbers=left,                    numbersep=5pt,
+    %showspaces=false,
+    %%showstringspaces=false, showtabs=false,
+    %tabsize=4
+%}
+%\lstset{style=mystyle}
+
+\newcommand{\whitepage}{
+    \clearpage\thispagestyle{empty}\addtocounter{page}{-1} \newpage \clearpage
+}
+
+% Add command before appendix session for page numbering: A-1
+%\newcommand{\appendixpagenumbering}{
+    %\break
+    %\pagenumbering{arabic}
+    %\renewcommand{\thepage}{\thesection-\arabic{page}}
+%}
+
+%% Custom Math operators (functions not in italic in math mode):
+%\DeclareMathOperator{\arcsec}{arcsec}
+%\DeclareMathOperator{\arccot}{arccot}
+%\DeclareMathOperator{\arccsc}{arccsc}
+%\DeclareMathOperator{\cis}{cis}
