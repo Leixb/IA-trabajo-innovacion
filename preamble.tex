@@ -9,18 +9,18 @@
 \usepackage{xcolor}
 \usepackage{siunitx}
 
-%% Bibliography:
-%\usepackage{comment}
-%\usepackage[
-    %backend=biber,
-    %style=numeric,
-%]{biblatex}
-%\DeclareNameAlias{default}{last-first}
+% Bibliography:
+\usepackage{comment}
+\usepackage[
+    backend=biber,
+    style=numeric,
+]{biblatex}
+\DeclareNameAlias{default}{family-given}
 
-%\usepackage{csquotes}       % For bibliography quotations
+\usepackage{csquotes}       % For bibliography quotations
 %\DeclareQuoteAlias{spanish}{catalan}
 
-%\addbibresource{biblio.bib}
+\addbibresource{biblio.bib}
 %% see:
 %% https://www.sharelatex.com/learn/Bibliography_management_in_LaTeX#The_bibliography_file
 
@@ -30,8 +30,12 @@
     %\monthname[\THEMONTH], \THEYEAR}
 
 % For cross references
-\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks = true]{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks = true]{hyperref}
 \usepackage[catalan]{varioref}
+\hypersetup{breaklinks=true}
+\urlstyle{same}
+%\usepackage{cite}
 %\usepackage{cleveref}
 %hyperref configuration so that it doesn't contrast so much colorlinks,
 \hypersetup{
