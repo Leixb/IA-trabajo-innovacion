@@ -33,9 +33,13 @@ Mayo 2020
     \vfill
     {\Large Inteligencia Artificial\par}
     \vspace{2em}
-    {\Huge \bfseries 
+    {\Huge 
     Trabajo de innovación \\
-    AIRx %\textsuperscript{TM}
+    \par}
+    \vspace{1em}
+    {\Huge\bfseries 
+    AIRx\textsuperscript{\texttrademark}
+    \\ Intelligent MR slice prescription
     \par}
     \vspace{2em}
     {\large \scshape 
@@ -72,7 +76,6 @@ Alex Herrero Pons\\
 %En este ámbito la inteligencia artificial se utiliza para hacer el escaneo de imágenes más preciso y rápido. 
 %En concreto nos centraremos en el producto AIRx™ de general electric healthcare.
 
-
 %     Descripción del producto o servicio
 %     Descripción de las técnicas de IA que se han utilizado
 %     Descripción de cómo han sido utilizadas las técnicas
@@ -81,168 +84,183 @@ Alex Herrero Pons\\
 %     Impacto del producto en el usuario o en la sociedad (beneficios y riesgos)
 %      Bibliografía/Referencias utilizadas para la elaboración del documento
 
-
-% solo se tiene k ir mirando en las fuentes k tenemos y ir metiendo
-
-% btw quizás estaría bien poner en la portada el nombre de nuestro producto
-
-% y el cuestionario del trabajo en equipo del trabajo de innovación lo entregasteis? porque yo no :o
-% no
-% no creo que importe mucho
-% ya esta la biblio como tocaria
-% si encontrais otra pagina web o algo apunta el link abajo i la meto. okkay perff
-
+\null
+\vspace{4em}
 
 \section{Introducción}
 Actualmente, en el campo de la medicina hay diversas técnicas para observar alteraciones en los tejidos y detectar cáncer y otras patologías. Una de las técnicas más conocidas y utilizadas es el análisis de imágenes creadas por resonancia magnética (MRI). 
 
-La MRI es una técnica no invasiva que hace uso del fenómeno de la resonancia magnética nuclear para extraer información sobre la estructura y composición del cuerpo a analizar.
+La MRI es una técnica no invasiva utilizada en radiología que hace uso del fenómeno de la resonancia magnética nuclear para extraer información sobre la estructura y composición del cuerpo a analizar. Seguidamente esta información es procesada y transformada en imágenes mediante un proceso informático. Estas imágenes además de representar estructuras anatómicas, también son capaces de representar fisiología y función como por ejemplo el flujo sanguíneo o la perfusión y difusión.
 
-Esta información es procesada por ordenadores y transformada en imágenes.
+A pesar de que su principal aplicación es en el campo de la medicina, esta técnica también es utilizada en el campo de la industria para analizar la estructura de materiales tanto orgánicos como inorgánicos.
 
-%La resonancia magnética ( MRI ) es una técnica de imagen médica utilizada en radiología para formar imágenes de la anatomía y los procesos fisiológicos del cuerpo. Los escáneres de resonancia magnética utilizan campos magnéticos fuertes , gradientes de campo magnético y ondas de radio para generar imágenes de los órganos del cuerpo.La IRM (Figura 1) es una técnica de imagen en 3D que permite a los médicos visualizar estructuras en el cuerpo de manera no invasiva y sin radiación ionizante. La resonancia magnética es una modalidad de imagen muy utilizada y potente debido a su contraste superior entre los tejidos "blandos", por ejemplo, materia gris, materia blanca y LCR, así como su capacidad única no solo de visualizar estructuras anatómicas, sino también de representar fisiología y función, p. Ej. flujo sanguíneo, perfusión y difusión.
+El proceso de interpretar la información extraída y convertirla en imágenes ha mejorado drásticamente en la última década gracias a las CNNs, un tipo de redes neuronales que explicaremos más adelante.
 
-% Esta información es procesada por ordenadores y transformada en imágenes del interior de lo que se ha analizado.
-
-% También es utilizada industrialmente para analizar la estructura de materiales tanto orgánicos como inorgánicos. 
-
+\pagebreak
 \section{Descripción del producto}
-El producto escogido es AIR este tiene el objetivo de realizar un escaneo de resonancia magnética (MRI) mediante inteligencia artificial y este incorpora un módulo basado en el aprendizaje profundo que se llama AIRx.
-\cite{noauthor_magnetic_nodate} 
-    \subsection{MRI} % IRM en castellano
-    % aqui que ponemos?? porque yo iba a hablar de la MRI en la intro
-    %no sé
-    % yo pondria en mas detalle como se hace un MRI
-    % para poder decir en que ayuda el producto.
-    % es decir, para hacer un MRI el operador tiene que hacer esto y esto manualemtne y 
-    % es dificl i se tarda much o y si se hace mal que pasa y todo ese rollo.
+La empresa GE Healthcare dispone de una familia de productos llamada AIR destinados exclusivamente a mejorar la resonancia magnética mediante la inteligencia artificial. En concreto nosotros hablaremos de AIRx, un producto que incorpora el Deep Learning para obtener imágenes de MRI mediante la segmentación en planos y el uso de las CNNs.
+% TODO: https://www.gehealthcare.com/products/magnetic-resonance-imaging/air-technology
+% ñe, a ver que te parece, no sé si es esto la verdad
+
+% TODO: meter esto ?? where, que link es?
+%dale en el doucmento generado para verlo
+% www.gesignapulse.com/signapulse/autumn_2018/MobilePagedArticle.action?articleId=1444512
+% es una puta mierda, no dice nada en verdad... XD
+\cite{noauthor_introducing_nodate}
+
+    \subsection{\emph{Magnetic Ressonance Imaging} (MRI)}%
+     %\footnote{Imagen por Resonancia Magnética (IRM)} 
     En el examen de MRI, el operador de exploración primero adquiere un conjunto de imágenes de "localizador" de baja resolución (figura~\ref{fig:resonancia}) a partir de las cuales se puede identificar la ubicación y orientación aproximadas de los puntos de referencia deseados. Estas referencias anatómicas se utilizan para planificar manualmente las ubicaciones exactas, la orientación y la cobertura requerida para las imágenes que se utilizarán para los escaneos de alta resolución que se utilizan para el diagnóstico. Este procedimiento es complicado ya que la orientación, la ubicación y la cobertura deben ser correctas en las tres dimensiones
      espaciales.
      
      \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{resonancia.png}
-        \caption{Imagen MRI}%
+        \caption{Ejemplo de 3 cortes distintos obtenidos mediante MRI}%
         \label{fig:resonancia}
      \end{figure}
     
-    La calidad y la consistencia del posicionamiento y la orientación de los cortes depende en gran medida de la habilidad y experiencia del operador de escaneo. Este proceso puede llevar mucho tiempo y ser difícil, especialmente para las anatomías complejas. Como resultado, puede haber inconsistencias de un operador de escaneo a otro. Esta falta de consistencia puede hacer que el trabajo del radiólogo al interpretar estas imágenes sea más difícil, especialmente cuando un paciente está siendo escaneado como un seguimiento de un examen de resonancia magnética anterior y están tratando de identificar cambios sutiles en la anatomía o la progresión de la enfermedad con el tiempo. En el peor de los casos, no se obtienen las imágenes correctas y el paciente debe regresar para otro procedimiento.
+    La calidad y la consistencia del posicionamiento y la orientación de los cortes
+    \footnote{Un corte es el plano espacial en el que se realiza el escaneo (\emph{slice})}
+    depende en gran medida de la habilidad y experiencia del operador de escaneo. Este proceso puede llevar mucho tiempo y ser difícil, especialmente para las anatomías complejas. Como resultado, puede haber inconsistencias de un operador de escaneo a otro. Esta falta de consistencia puede hacer que el trabajo del radiólogo al interpretar estas imágenes sea más difícil, especialmente cuando un paciente está siendo escaneado como un seguimiento de un examen de resonancia magnética anterior y están tratando de identificar cambios sutiles en la anatomía o la progresión de la enfermedad con el tiempo. En el peor de los casos, no se obtienen las imágenes correctas y el paciente debe regresar para otro procedimiento.
+    
     \subsection{Antecedentes}
-    %..
+    
+    El uso de técnicas de IA en medicina esta muy extendido y se pueden encontrar muchos ejemplos en muchas áreas de la medicina. En el campo
+    de los MRI se han hecho varios estudios sobre el uso de CNNs para hacer diagnósticos a partir de imágenes MRI \cite{bien_dont_2018,noauthor_deep-learning_nodate}. Un ejemplo es un estudio
+    sobre la detección de cáncer metastático en imágenes MRI \cite{grovik_deep_2020}.
+    Sin embargo la mayoría de los estudios realizados se centran en el diagnostico, AIRx busca agilizar el proceso de toma de las imágenes
+    que se usaran para el diagnostico.
+    
     \subsection{AIRx}
-    El módulo AIRx incorpora tecnología CNN, a este módulo el tiempo que le toma al operador de exploración determinar las ubicaciones y orientaciones para los planos de exploración deseados para una resonancia magnética cerebral puede reducirse entorno al 40-60 por ciento. Y además gracias a este módulo se puede ver una reducción en los errores y una precisión mejorada. Esto se puede traducir como  resultados de exámenes generales más cortos,con una posibilidad reducida de devolución de llamadas del paciente y una mejor calidad de diagnóstico del examen.
-\section{Técnicas de IA}
+    
+    % TODO
+    
+    El módulo AIRx incorpora tecnología CNN, a este módulo el tiempo que le toma al operador de exploración determinar las ubicaciones y orientaciones para los cortes de exploración deseados para una resonancia magnética cerebral puede reducirse entorno al 40-60 por ciento. Y además gracias a este módulo se puede ver una reducción en los errores y una precisión mejorada. Esto se puede traducir como  resultados de exámenes generales más cortos,con una posibilidad reducida de devolución de llamadas del paciente y una mejor calidad de diagnóstico del examen.
 
-    La principal técnica de IA utilizada son redes neuronales convolucionales.
+\pagebreak
+\section{Técnicas de IA}
 
     \subsection{Convolutional Neural Networks (CNN)}
     
     Las redes neuronales convolucionales son un caso especifico de redes neuronales de deep learning
-    en las que la entrada son imágenes. Son redes de clasificación feed-forward (no son recurrentes)
+    en las que la entrada son imágenes. Una CNN consiste en varias capas de convolucion y subsampling (o pooling)
+    que extraen las características (\emph{features}) de la imagen que se usan como entrada de una \emph{fully connected layer}
+    que clasifica la imagen \cite{saha_comprehensive_2018,noauthor_deep_nodate,noauthor_hackfromhome_nodate}.
+    En la figura~\ref{fig:cnn} se muestra un esquema de la estructura de una CNN.
     
      \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{cnn}
-        \caption{CNN}%
+        \caption{CNN \cite{aphex34_english_2015} }%
         \label{fig:cnn}
      \end{figure}
-    
-    % https://torres.ai/deep-learning-inteligencia-artificial-keras/#5_REDES_NEURONALES_CONVOLUCIONALES
     
     \subsection{U-net}
     
     U-net es un tipo de CNN para la segmentación de imágenes, es decir dividir la imagen inicial en
-    segmentos. La idea principal es aplicar una CNN con capas de pooling (reducen el tamaño de la entrada
-    augmentando la información de las características), una vez se tiene la información se aplica otra
-    CNN con capas de up-conv que usan la información de las capas de pooling para aumentar el tamaño
-    de la salida hasta generar un mapa de segmentación de la imagen en las dimensiones originales de la
-    entrada. En la figura~\ref{fig:unet} se ve un ejemplo de U-net (se puede apreciar también la forma de
-    U del diagrama que le da el nombre a la red).
+    segmentos. Se basa en la aplicacion de una CNN de classificacion y una vez llegada a la salida de
+    classificacion, usar-la como entrada junto con los datos de los pasos anteriores deshaciendo los
+    pasos de pooling hasta llegar a producir una salida que segmenta la imagen según la característica.
+    La figura~\ref{fig:unet} ilustra un ejemplo de U-net en la que se puede observar como se usan
+    los resultados de la classificacion y los \emph{featrure maps} de cada nivel de pooling para
+    generar la salida.(se puede apreciar también la forma de U del diagrama que da el nombre a la red).
     
      \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{unet}
-        \caption{U-net}%
+        \includegraphics[width=0.7\textwidth]{unet}
+        \caption{Arquitectura U-net \cite{sankesara_u-net_2019}}%
         \label{fig:unet}
      \end{figure}
      
+\pagebreak
 \section{Uso de las técnicas de IA}
-\cite{noauthor_intelligent_nodate}
-\cite{noauthor_magnetic_nodate} 
-\cite{noauthor_new_nodate}
 
-El proceso se divide en 3 etapas \cite{noauthor_ge_nodate-1}:
-\emph{LocalizerIQ-Net}, \emph{Coverage-Net} y \emph{Orientation-Net}, cada una de ellas usa varias 
-CNNs distintas.
+    El proceso se divide en 3 etapas \cite{noauthor_ge_nodate-1}:
+    \emph{LocalizerIQ-Net}, \emph{Coverage-Net} y \emph{Orientation-Net}, cada una de ellas usa varias 
+    CNNs distintas.
 
      \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{steps}
-        \caption{Etapas}%
+        \caption{Etapas \cite{noauthor_ge_nodate-1}}%
         \label{fig:steps}
      \end{figure}
 
     \subsection{LocalizerIQ-Net}
     
     Esta etapa decide para cada una de las imágenes de localización iniciales si es útil para
-    identificar el plano de la anatomía deseada. Esto sirve para identificar si las imágenes iniciales
+    identificar el corte de la anatomía deseada. Esto sirve para identificar si las imágenes iniciales
     son buenas y útiles para las siguientes fases o si el operador debe realizar mas escáneres.
     
-    En esta etapa se usa una red neuronal convolutional de clasificación de 5 capas con 
-    
-    %Image quality inspection: In the first step, we check if the given localizer image is suitable to identify the plane for the desired anatomy. This is achieved by using a fiver layer, dyadic reduction regular CNN classification network model (that we call “LocalizerIQ-Net”) to identify slices with relevant brain-anatomy, slices with artifacts and irrelevant slices. If the localizer image is not suitable for ISP, relevant feedback is provided to the scan operator. We used the built-in TensorFlow functions for image manipulation to achieve data augmentation during the training of LocalizerIQ-Net.
+    En esta etapa se usa una red neuronal convolucional de clasificación de 5 capas que clasifica
+    las imágenes obtenidas como aptas o no.
     
     \subsection{Coverage-Net}
-    %Identification of anatomy coverage: Next, we locate the spatial-extent of the desired anatomy (brain) in the localizer images by incorporating a shape-based semantic image segmentation U-Net DL model (called “Coverage-Net”). This helps the next processing steps to be robust to changes in imaging parameter settings across hospitals and clinics as well as changes in shapes and sizes of the patient’s anatomy.
+    
+    Esta etapa se encarga de localizar la posición de la anatomía del paciente a analizar, en este caso
+    el cerebro. Para ello se usa una U-net que segmenta la imagen identificando que parte de la imagen
+    forma parte del cerebro. Esto permite que la siguiente etapa no dependa de cambios en la posición del
+    paciente o las diferencias de forma y tamaño entre pacientes.
+    
     \subsection{Orientation-Net}
     
-    % Identification of precise plane orientation and location: For each desired anatomic structure (example, optic nerve), we find the scan-plane that is best suited to image that structure using one or more image segmentation 3D U-Net models (called “Orientation-Net”). Orientation-Net directly segments the desired-planes on localizer images, which is then used to compute the orientation and location.
+    Esta etapa se encarga de producir segmentos de los cortes deseados en las imágenes de localización que se usaran para computar
+    la orientación y localización de cada corte. Estos segmentos se generan usando una o mas U-net 3 dimensionales.
+    Estos modelos de U-net dependen de la estructura anatómica a analizar (Se tiene un modelo entrenado para cada estructura anatómica distinta).
     
+\pagebreak
 \section{Explicación de la innovación}
-\cite{noauthor_intelligent_nodate}
-\cite{noauthor_magnetic_nodate} 
 
 La naturaleza de la innovación reside en el uso de IA en una etapa del MRI donde no se había usado antes.
 Como hemos mencionado, el uso de CNN se ha usado anteriormente en el ámbito de los MRI para examinar
 los resultados obtenidos y ayudar en el diagnostico (detectar metástasis, etc.). Sin embargo
-este producto introduce el uso de técnicas de MRI para facilitar la realización de los escaneres y
-obtener los mejores slices posibles.
+este producto introduce el uso de técnicas de IA para facilitar la realización de los escáneres y
+obtener los mejores cortes posibles.
 
 \section{Impacto del producto en la empresa}
 
-\cite{noauthor_intelligent_nodate}
-\cite{noauthor_new_nodate}
 
     \subsection{Beneficios}
     
-    El principal beneficio es la mejora en la eficiencia y la calidad de las imágenes obtenidas en el
-    MRI, que permiten un diagnostico mas rápido y fiable.
+    El principal beneficio es la mejora en la eficiencia y la calidad de las imágenes obtenidas en el MRI, que permiten un diagnostico mas rápido y fiable. Según un estudio interno realizado por GE Healthcare el tiempo dedicado a buscar la localización y orientación de los cortes puede verse reducido entre un 40 y 60\% y, gracias a este mismo estudio, se demostró una notable mejora de precisión. Todo esto hace que los pruebas médicas se realicen más rápidas y con menos inexactitud, lo que provocará que reduzca el numero de segundas pruebas más adelante \cite{noauthor_intelligent_nodate}.
+    
+    Como los diagnósticos son más rápidos y fiables los pacientes enfermos pueden ser tratados antes, y el coste económico que tiene el tratamiento de enfermedades como el cáncer en las fases tempranas es mucho menor \cite{justo_exploring_nodate,noauthor_new_nodate}.
     
     \subsection{Riesgos}
+    
+    Existe una gran controversia sobre la ética de aplicar la IA al campo de la medicina y derivar responsabilidades en las máquinas. Esto implica que, en caso de negligencia provocada por una IA, se creen dilemas teóricos sobre quién tiene la culpa del error y se contemplen nuevas consecuencias legales y financieras que pueden afectar negativamente a la empresa \cite{healthitanalytics_arguing_2018}.
+    
+    % solo faltan los cite de abajo, no?
     
     \subsection{Posición en el mercado}
     
-\section{Impacto del producto en el usuario o en la sociedad}
-\cite{noauthor_new_nodate}
-\cite{noauthor_magnetic_nodate} 
-
-    \subsection{Beneficios}
-    \subsection{Riesgos}
+    AIRx a pesar de estar en aun en desarrollo recibió la autorización 510(k) por parte de la FDA\footnote{US Food and Drug Administration} en 2010, pero hasta que la CE\footnote{Council of the European Union} no de su aprobación, no se podrá vender ni comercializar en ninguna región \cite{noauthor_air_nodate,noauthor_ge_nodate-1}.
     
+    Aun así, al ser el primer producto que utiliza la IA para obtener imágenes de MRI y por el momento también el único, su principal competidor son los escáneres de MRI convencionales que tienen menos fiabilidad. 
+    
+    Además GE Healthcare, una empresa reconocida mundialmente con mas de 100 años de experiencia en el ámbito de la salud, es líder en el campo de la imagen medicinal. Todo esto facilitará rápida entrada en el mercado \cite{noauthor_ge_nodate}.
     
 \pagebreak
+\section{Impacto del producto en el usuario o en la sociedad}
+    
+    % TODO: revisar esto
+Como todo producto este también tienen un impacto en la sociedad y además no lo hace de cualquier manera, ya que este producto se utiliza en el sector de la salud. En el cual los productos son de vital importancia para la salud de la gente la cual forma la sociedad.
 
-% TODO: quitar esto
-6 \cite{noauthor_intelligent_nodate} %.
-5 \cite{noauthor_how_nodate}
-9 \cite{noauthor_magnetic_nodate}  %.
-10 \cite{noauthor_new_nodate} %.
-8 \cite{justo_exploring_nodate}
-2 \cite{noauthor_deep-learning_nodate}
-3 \cite{noauthor_ge_nodate}
-7 \cite{noauthor_introducing_nodate}
-1 \cite{bien_dont_2018}
-4 \cite{noauthor_ge_nodate-1}
+% TODO: meter estos cite en algun sitio
+\cite{noauthor_how_nodate,noauthor_magnetic_nodate} 
+
+    \subsection{Beneficios}
+    Los beneficios sociales de este producto son evidentes. Cualquier mejora en la detección de alteraciones en los tejidos, y por lo tanto en la detección de cáncer y otras patologías, es muy importante para tratar a los pacientes con más antelación y consecuentemente reducir el riesgo de dichas patologías.
+    
+    En el caso de los tumores está demostrado que cuanto más tarde se detectan, son mucho más difíciles de tratar. De echo, la probabilidad de supervivencia tras 5 años es inmensamente mayor cuando el tumor se ha detectado en las primeras fases de desarrollo \cite{noauthor_diagnostico_nodate}.
+    
+    Como ya hemos mencionado el coste económico del tratamiento cuando la enfermedad aun está en desarrollo es mucho más bajo y en países donde la sanidad no es pública también es un gran beneficio social a tener en cuenta. Concretamente, según una encuesta de 2019 realizada por The Mesothelioma Center, el 63\% de los pacientes diagnosticados con cáncer en Estados Unidos en ese año informaron dificultades financieras tras comenzar el tratamiento \cite{noauthor_americans_nodate}.
+    
+    \subsection{Riesgos}
+    
+    Como era de esperar esta técnica no es perfecta y puede producir segmentos de la imagen que no sean óptimos. Esto puede provocar que no se represente precisamente aquello que se está buscando y por lo tanto derivar en falsos negativos u otros malos diagnósticos. A pesar de que la fiabilidad es mayor que con otros métodos este riesgo sigue estando presente y no podemos obviarlo ya que un mal diagnóstico puede costar-le la vida a un paciente.
+\pagebreak
 
 \sloppy
 \printbibliography
@@ -256,83 +274,9 @@ obtener los mejores slices posibles.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % URLs bibliografia que faltan
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% TODO?
 % meted aqui si encontrais algo util
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Apartados bibliografia
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% https://blog.tensorflow.org/2019/03/intelligent-scanning-using-deep-learning.html?m=1   
-% - Descripción del producto
-% - técnicas de IA utilizadas
-% - como se han utilizado las técnicas
-% - impacto en la empresa
-\cite{noauthor_intelligent_nodate}
-
-% https://www.gehealthcare.com/article/magnetic-resonance-imaging-using-ai-a-new-deep-learning-tool   
-% - Descripción del producto
-% - técnicas de IA utilizadas
-% - impacto en el usuario o la sociedad
-\cite{noauthor_magnetic_nodate}
-
-% https://www.gehealthcare.com/article/how-advanced-applications-and-ai-are-impacting-mri  
-% - Técnicas de IA utilizadas
-% - impacto en el usuario o la sociedad
-\cite{noauthor_how_nodate}
-
-% http://www.gesignapulse.com/signapulse/spring_2019/MobilePagedArticle.action?articleId=1488815&app=false#articleId1488815 
-% - Técnicas de IA utilizadas
-% - como se han utilizado las técnicas
-% - impacto en el usuario o en la empresa)
-\cite{noauthor_new_nodate}
-
-% http://www.gesignapulse.com/signapulse/spring_2018/MobilePagedArticle.action?articleId=1396203&app=false#articleId1396203 
-% - Descripción del producto
-% - impacto del producto en el usuario o en la sociedad
-% - impacto del producto en la empresa
-\cite{justo_exploring_nodate}
-
-% https://www.auntminnie.com/index.aspx?sec=rca&sub=ecr_2019&pag=dis&ItemID=124750  
-% - técnicas IA utilizadas
-% - impacto del producto en el usuario o en la sociedad
-% - impacto del producto en la empresa
-\cite{noauthor_deep-learning_nodate}
-
-% https://www.dotmed.com/news/story/46576    
-% - Descripción del producto
-% - impacto del producto en el usuario o en la sociedad
-% - impacto del producto en la empresa
-\cite{noauthor_ge_nodate}
-
-% http://www.gesignapulse.com/signapulse/autumn_2018/MobilePagedArticle.action?articleId=1444512&app=false#articleId1444512  
-% - Descripción del producto
-% -  técnicas de IA utilizadas
-\cite{noauthor_introducing_nodate}
-
-% https://medium.com/stanford-ai-for-healthcare/dont-just-scan-this-deep-learning-techniques-for-mri-52610e9b7a85   
-% - Descripción del producto
-% - técnicas de IA utilizadas
-% - como se han utilizado las técnicas
-\cite{bien_dont_2018}
-
-% https://www.intel.com/content/www/us/en/artificial-intelligence/solutions/gehc-airx.html
-\cite{noauthor_ge_nodate-1}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% equivalencias de url a cite en la bibliografía
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-% https://blog.tensorflow.org/2019/03/intelligent-scanning-using-deep-learning.html \cite{noauthor_intelligent_nodate}
-%https://www.gehealthcare.com/article/how-advanced-applications-and-ai-are-impacting-mri \cite{noauthor_how_nodate}
-%https://www.gehealthcare.com/article/magnetic-resonance-imaging-using-ai-a-new-deep-learning-tool \cite{noauthor_magnetic_nodate}
-%http://www.gesignapulse.com/signapulse/spring_2019/MobilePagedArticle.action?articleId=1488815 \cite{noauthor_new_nodate}
-%http://www.gesignapulse.com/signapulse/spring_2018/MobilePagedArticle.action?articleId=1396203 \cite{justo_exploring_nodate}
-%https://www.auntminnie.com/index.aspx?sec=rca&sub=ecr_2019&pag=dis&ItemID=124750 \cite{noauthor_deep-learning_nodate}
-%https://www.dotmed.com/news/story/46576 \cite{noauthor_ge_nodate}
-%http://www.gesignapulse.com/signapulse/autumn_2018/MobilePagedArticle.action?articleId=1444512 \cite{noauthor_introducing_nodate}
-%https://medium.com/stanford-ai-for-healthcare/dont-just-scan-this-deep-learning-techniques-for-mri-52610e9b7a85 \cite{bien_dont_2018}
-%https://www.intel.com/content/www/us/en/artificial-intelligence/solutions/gehc-airx.html \cite{noauthor_ge_nodate-1}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% No matter how you slice it, this AI tech is changing MR neuro imaging
+% URL: https://www.gehealthcare.com/article/no-matter-how-you-slice-it-this-ai-tech-is-changing-mr-neuro-imaging (visitado 28-05-2020)
 
